@@ -1,4 +1,4 @@
-export class TreeNode {
+class TreeNode {
     val: number;
     left: TreeNode | null;
     right: TreeNode | null;
@@ -8,3 +8,5 @@ export class TreeNode {
         this.right = (right === undefined ? null : right);
     }
 }
+
+module.exports.TreeNode = TreeNode

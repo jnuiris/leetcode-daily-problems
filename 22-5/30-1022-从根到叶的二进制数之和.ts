@@ -10,39 +10,56 @@ let five = new TreeNode(1)
 let six = new TreeNode(0)
 let seven = new TreeNode(1)
 
-// one.left = two
-// one.right = three
-// two.left = four
-// two.right = five
-// three.left = six
-// three.right = seven
+one.left = two
+one.right = three
+two.left = four
+two.right = five
+three.left = six
+three.right = seven
 
 // let res = preTraverse(one)
 
-function sumRootToLeaf(root: TreeNode | null): number {
+//  5-31 增加递归写法
+function sumRootToLeaf(root: TreeNode): number {
     let res = 0
     if(!root) {
         return 0
     }
-    //  层序遍历
-    let queue = [] as any
-    queue.push([root as any, 0])
-    while(queue.length) {
-        let [now, total] = queue.shift()
-        total = 2 * total + now.val
-        if(!now.left && !now.right) {
-            res += total
+    let total = 0
+    function recursive(root: TreeNode, val: number): any {
+        if(root && !root.left && !root.right) {
+            total += val
         }
-        if(now.left) {
-            queue.push([now.left, total])
-        }
-        if(now.right) {
-            queue.push([now.right, total])
-        }
+        recursive(root.left, 2 * val + root.val)
+        recursive(root.right, 2 * val + root.val)
+        return 1
     }
+}
 
-    return res
-};
+// function sumRootToLeaf(root: TreeNode | null): number {
+//     let res = 0
+//     if(!root) {
+//         return 0
+//     }
+//     //  层序遍历
+//     let queue = [] as any
+//     queue.push([root as any, 0])
+//     while(queue.length) {
+//         let [now, total] = queue.shift()
+//         total = 2 * total + now.val
+//         if(!now.left && !now.right) {
+//             res += total
+//         }
+//         if(now.left) {
+//             queue.push([now.left, total])
+//         }
+//         if(now.right) {
+//             queue.push([now.right, total])
+//         }
+//     }
+//
+//     return res
+// };
 
 console.log(sumRootToLeaf(one))
 
