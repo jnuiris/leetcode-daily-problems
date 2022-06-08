@@ -9,6 +9,7 @@ var makesquare = function(matchsticks) {
                 continue
             }
             buckets[i] += sortTicks[idx]
+            // return backtrack(sortTicks, idx + 1, buckets, edgeLen)
             if(backtrack(sortTicks, idx + 1, buckets, edgeLen)) {
                 return true
             }

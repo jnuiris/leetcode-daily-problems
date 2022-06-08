@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/jnuiris/leetcode-daily-problems#readme",
   "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.11",
     "ts-node": "^10.8.0",
     "typescript": "^4.7.2"
   },
